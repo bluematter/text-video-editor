@@ -1,5 +1,6 @@
 import clsx from 'clsx';
 import React, { useState } from 'react';
+import GitHubButton from 'react-github-btn';
 import { ReflexContainer, ReflexElement, ReflexSplitter } from 'react-reflex';
 
 import 'react-reflex/styles.css';
@@ -8,6 +9,8 @@ import Editor from '@/components/Editor';
 import Layout from '@/components/layout/Layout';
 import Seo from '@/components/Seo';
 import Video from '@/components/Video';
+
+import transcription from '@/helpers/transcription';
 
 /**
  * SVGR Support
@@ -26,8 +29,8 @@ export default function HomePage() {
 
   const t = {
     mp4: {
-      src: 'https://s3.us-west-2.amazonaws.com/motionbox.mediaconvert/256ae530-d5db-11ed-93d0-89154e48a671_clg7mneb30000mn08zfax1d22.mp4',
-      size: 24151556,
+      src: 'https://s3.us-west-2.amazonaws.com/motionbox.mediaconvert/2a08c950-d8e6-11ed-851f-773a50a72ba2_clgd5ukv5001cmq08lhae3m0z.mp4',
+      size: 37511553,
     },
   };
   const videoDimensions = {
@@ -36,9 +39,9 @@ export default function HomePage() {
     height: 1080,
   };
   const videoSrc =
-    'https://s3.us-west-2.amazonaws.com/motionbox.mediaconvert/256ae530-d5db-11ed-93d0-89154e48a671_clg7mneb30000mn08zfax1d22.mp4';
+    'https://s3.us-west-2.amazonaws.com/motionbox.mediaconvert/2a08c950-d8e6-11ed-851f-773a50a72ba2_clgd5ukv5001cmq08lhae3m0z.mp4';
   const isTabletOrMobile = false;
-  const recordingDuration = 30;
+  const recordingDuration = 86.051;
   const editorSize = {
     left: 0.6,
     right: 0.4,
@@ -61,8 +64,20 @@ export default function HomePage() {
       {/* <Seo templateTitle='Home' /> */}
       <Seo />
 
-      <main>
-        <section className='mx-auto flex h-[100vh] max-w-7xl items-center bg-white'>
+      <main className='flex h-[100vh] flex-col'>
+        <div className='mx-auto flex w-full max-w-7xl items-center py-4'>
+          <div>motionbox / text-video-editor</div>
+          <div className='ml-auto'>
+            <GitHubButton
+              href='https://github.com/bluematter/text-video-editor'
+              data-size='large'
+              aria-label='Star bluematter/text-video-editor on GitHub'
+            >
+              Star
+            </GitHubButton>
+          </div>
+        </div>
+        <section className='mx-auto flex max-w-7xl flex-1 items-center bg-white'>
           <ReflexContainer
             orientation={isTabletOrMobile ? 'horizontal' : 'vertical'}
             style={{
@@ -98,8 +113,8 @@ export default function HomePage() {
                 recordingDuration={recordingDuration}
                 src={videoSrc}
                 thumbnail={undefined}
-                transcription={[]}
-                videoChunks={[[0, 30]]}
+                transcription={transcription}
+                videoChunks={[[0, recordingDuration]]}
                 videoDimensions={videoDimensions}
                 onDurations={() => ''}
               />
@@ -119,9 +134,9 @@ export default function HomePage() {
               >
                 <Editor
                   durations={{
-                    introDuration: 10,
-                    editsDuration: 10,
-                    recordingDuration: 60,
+                    introDuration: 0,
+                    editsDuration: 0,
+                    recordingDuration: recordingDuration,
                   }}
                   captionSettings={{
                     fixed: 4,
@@ -139,7 +154,7 @@ export default function HomePage() {
                   onSelection={() => ''}
                   onSetCaptionSettings={() => ''}
                   selectionState={null}
-                  transcription={[]}
+                  transcription={transcription}
                   videoDimensions={null}
                 />
               </div>
