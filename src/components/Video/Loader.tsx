@@ -9,9 +9,9 @@ const Loader: FC<ILoaderProps> = ({ rectangle }) => {
   return (
     <div
       id='loader-node'
-      className='relative h-[100%] w-[100%] overflow-hidden rounded border'
+      className='relative h-full w-full overflow-hidden rounded border'
     >
-      <div className='h-100 w-100 absolute z-10 flex justify-center'>
+      <div className='absolute z-10 flex h-full w-full justify-center'>
         <div className='margin-auto relative flex items-center'>
           <button
             type='button'

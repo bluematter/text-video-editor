@@ -14,9 +14,12 @@ const Thumbnail: FC<IThumbnailProps> = ({
 }) => {
   return (
     <div
-      className={clsx(!showThumbnail && 'hidden', 'h-100 w-100 relative flex')}
+      className={clsx(
+        !showThumbnail && 'hidden',
+        'relative flex h-full w-full'
+      )}
     >
-      <div className='h-100 w-100 absolute z-10 flex justify-center'>
+      <div className='absolute z-10 flex h-full w-full justify-center'>
         <div className='margin-auto relative flex items-center'>
           <button
             type='button'
@@ -53,7 +56,7 @@ const Thumbnail: FC<IThumbnailProps> = ({
           loop={true}
           autoPlay={true}
           muted={true}
-          className='w-100 max-h-100 object-fit block rounded'
+          className='object-fit block max-h-full w-full rounded'
         ></video>
       </div>
     </div>

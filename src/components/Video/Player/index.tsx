@@ -129,7 +129,7 @@ const Player: FC<IPlayerProps> = ({
   useEffect(handleUpdateDurations, [recordingDuration]);
 
   return (
-    <PlayerContainer id='player-container' className='w-100 h-100'>
+    <PlayerContainer id='player-container' className='h-full w-full'>
       <Head>
         <link rel='preconnect' href='https://fonts.googleapis.com' />
         <link
@@ -142,9 +142,9 @@ const Player: FC<IPlayerProps> = ({
           rel='stylesheet'
         />
       </Head>
-      <div className='w-100 h-100 css-l3r58'>
+      <div className='css-l3r58 h-full w-full'>
         <div
-          className='video-container w-100 h-100 relative items-center justify-center overflow-hidden rounded-xl bg-[#121212]'
+          className='video-container relative h-full w-full items-center justify-center overflow-hidden rounded-xl bg-[#121212]'
           onMouseEnter={handleMouseEnter}
           onMouseLeave={handleMouseLeave}
         >

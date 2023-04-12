@@ -135,7 +135,7 @@ const TextAnimation: FC<ITextAnimationProps> = memo(
     }, []);
 
     return (
-      <div className='w-100 h-100' ref={objectRef}>
+      <div className='h-full w-full' ref={objectRef}>
         {!mutatedAnimationData ? null : (
           <LottieText
             animationData={mutatedAnimationData}

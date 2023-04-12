@@ -1,6 +1,8 @@
 import clsx from 'clsx';
-import * as React from 'react';
+import React, { useState } from 'react';
 import { ReflexContainer, ReflexElement, ReflexSplitter } from 'react-reflex';
+
+import 'react-reflex/styles.css';
 
 import Editor from '@/components/Editor';
 import Layout from '@/components/layout/Layout';
@@ -20,10 +22,27 @@ import Video from '@/components/Video';
 // to customize the default configuration.
 
 export default function HomePage() {
+  const [isPlaying, setIsPlaying] = useState<boolean>(false);
+
+  const videoSrc =
+    'https://cdn.jsdelivr.net/npm/big-buck-bunny-1080p@0.0.6/video.mp4';
   const isTabletOrMobile = false;
+  const recordingDuration = 30;
   const editorSize = {
     left: 0.6,
     right: 0.4,
+  };
+
+  const handlePlay = () => {
+    setIsPlaying(true);
+  };
+
+  const handlePause = () => {
+    setIsPlaying(false);
+  };
+
+  const handlePlayback = () => {
+    setIsPlaying(!isPlaying);
   };
 
   return (
@@ -32,11 +51,12 @@ export default function HomePage() {
       <Seo />
 
       <main>
-        <section className='bg-white'>
+        <section className='mx-auto flex h-[100vh] max-w-7xl items-center bg-white'>
           <ReflexContainer
             orientation={isTabletOrMobile ? 'horizontal' : 'vertical'}
             style={{
               minHeight: 500,
+              maxHeight: 600,
             }}
           >
             <ReflexElement
@@ -45,8 +65,13 @@ export default function HomePage() {
               minSize={250}
             >
               <Video
-                medias={{}}
-                aspect='9/16'
+                medias={{
+                  0: {
+                    size: 1920,
+                    src: videoSrc,
+                  },
+                }}
+                aspect='16/9'
                 background='bg-[#121212]'
                 captionSettings={{
                   fixed: 4,
@@ -56,15 +81,19 @@ export default function HomePage() {
                 isCaptions={true}
                 isPlaying={false}
                 loading={false}
-                onPause={() => ''}
-                onPlay={() => ''}
-                onPlayback={() => ''}
-                recordingDuration={60}
-                src='videoSrc'
-                thumbnail='thumbnail'
+                onPause={handlePause}
+                onPlay={handlePlay}
+                onPlayback={handlePlayback}
+                recordingDuration={recordingDuration}
+                src={videoSrc}
+                thumbnail={undefined}
                 transcription={[]}
-                videoChunks={[]}
-                videoDimensions={null}
+                videoChunks={[[0, 30]]}
+                videoDimensions={{
+                  r: 1,
+                  width: 1920,
+                  height: 1080,
+                }}
                 onDurations={() => ''}
               />
             </ReflexElement>

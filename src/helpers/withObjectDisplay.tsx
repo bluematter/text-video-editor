@@ -18,7 +18,6 @@ export const getDragParent = (el: Element | null) => {
 const withObjectDisplay =
   <P extends {}>(Component: ComponentType<P>) =>
   ({ ...props }: any) => {
-    const C = Component;
     const { currTime, disable, endTime, startTime, isActiveEditor } = props;
     const currentTime =
       currTime !== undefined

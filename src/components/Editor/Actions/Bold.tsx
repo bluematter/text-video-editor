@@ -1,8 +1,9 @@
 import { FC, SyntheticEvent } from 'react';
 import { BiBold } from 'react-icons/bi';
 
-import { IUpdateTranscription, IWord } from '../../types';
-import Tooltip from '../../../../../components/Tooltip';
+import Tooltip from '@/components/Tooltip';
+
+import { IUpdateTranscription, IWord } from '@/types';
 
 interface IBoldProps {
   selectionState: Selection | null;

@@ -3,15 +3,14 @@ import { FC, useEffect, useState } from 'react';
 import { useCurrentTime } from '@/hooks/useCurrentTime';
 
 import Element from '@/components/Video/Player/Objects/Element';
+import Shape from '@/components/Video/Player/Objects/Shape';
+import Text from '@/components/Video/Player/Objects/Text';
+import TextAnimation from '@/components/Video/Player/Objects/TextAnimation';
+import Video from '@/components/Video/Player/Objects/Video';
 
 import { indexManager } from '@/helpers/indexManager';
 
 import { IDurations } from '.';
-
-import Shape from '/components/Video/Player/Objects/Shape';
-import Text from '/components/Video/Player/Objects/Text';
-import TextAnimation from '/components/Video/Player/Objects/TextAnimation';
-import Video from '/components/Video/Player/Objects/Video';
 // import { getTemplate } from '../../Hoc/withRenderDataGen';
 
 interface IRawPlayerProps {
@@ -367,92 +366,92 @@ const RawPlayer: FC<IRawPlayerProps> = ({
               )}
               {type === 'shape' && (
                 <Shape
-                  background={background}
-                  disable={false}
-                  endDelta={endDelta}
-                  endTime={endTime}
-                  height={height}
-                  isActiveEditor={true}
-                  keyframes={keyframes}
-                  left={left}
-                  opacity={opacity}
-                  radius={radius}
-                  startDelta={startDelta}
-                  startTime={startTime}
-                  top={top}
-                  width={width}
+                // background={background}
+                // disable={false}
+                // endDelta={endDelta}
+                // endTime={endTime}
+                // height={height}
+                // isActiveEditor={true}
+                // keyframes={keyframes}
+                // left={left}
+                // opacity={opacity}
+                // radius={radius}
+                // startDelta={startDelta}
+                // startTime={startTime}
+                // top={top}
+                // width={width}
                 />
               )}
               {type === 'element' && (
                 <Element
-                  animationData={animationData}
-                  background={background}
-                  barGap={barGap}
-                  barWidth={barWidth}
-                  color={color}
-                  connectedUid={connectedUid}
-                  currTime={currentTime}
-                  device={device}
-                  disable={false}
-                  effect={effect}
-                  emoji={emoji}
-                  endDelta={endDelta}
-                  endTime={endTime}
-                  giphy={giphy}
-                  height={height}
-                  isActiveEditor={true}
-                  mirrored={mirrored}
-                  motion={motion}
-                  opacity={opacity}
-                  playId=''
-                  progressbar={progressbar}
-                  scale={1}
-                  shape={shape}
-                  startDelta={startDelta}
-                  startTime={startTime}
-                  storyId=''
-                  stroke={stroke}
-                  uid={uid}
-                  visualizer={visualizer}
-                  width={width}
+                // animationData={animationData}
+                // background={background}
+                // barGap={barGap}
+                // barWidth={barWidth}
+                // color={color}
+                // connectedUid={connectedUid}
+                // currTime={currentTime}
+                // device={device}
+                // disable={false}
+                // effect={effect}
+                // emoji={emoji}
+                // endDelta={endDelta}
+                // endTime={endTime}
+                // giphy={giphy}
+                // height={height}
+                // isActiveEditor={true}
+                // mirrored={mirrored}
+                // motion={motion}
+                // opacity={opacity}
+                // playId=''
+                // progressbar={progressbar}
+                // scale={1}
+                // shape={shape}
+                // startDelta={startDelta}
+                // startTime={startTime}
+                // storyId=''
+                // stroke={stroke}
+                // uid={uid}
+                // visualizer={visualizer}
+                // width={width}
                 />
               )}
               {type === 'text' && (
                 <Text
-                  uid={uid}
-                  disable={false}
-                  value={text}
-                  width={width}
-                  height={height}
-                  left={left}
-                  top={top}
-                  color={color}
-                  stroke={stroke}
-                  opacity={opacity}
-                  language={language}
-                  background={background}
-                  lineHeight={lineHeight}
-                  fontSize={fontSize}
-                  fontWeight={fontWeight}
-                  fontFamily={fontFamily}
-                  liveObject={rawData[key]}
-                  textAlignment={textAlignment}
-                  scale={1}
-                  disabled={true}
-                  startTime={startTime}
-                  endTime={endTime}
-                  isActive={false}
-                  keyframes={keyframes}
-                  editingObject=''
-                  isActiveEditor={true}
-                  isEditing={false}
-                  isResizing={false}
-                  onEditing={() => {
-                    return '';
-                  }}
-                  onSetLiveObject={() => {
-                    return '';
-                  }}
+                // uid={uid}
+                // disable={false}
+                // value={text}
+                // width={width}
+                // height={height}
+                // left={left}
+                // top={top}
+                // color={color}
+                // stroke={stroke}
+                // opacity={opacity}
+                // language={language}
+                // background={background}
+                // lineHeight={lineHeight}
+                // fontSize={fontSize}
+                // fontWeight={fontWeight}
+                // fontFamily={fontFamily}
+                // liveObject={rawData[key]}
+                // textAlignment={textAlignment}
+                // scale={1}
+                // disabled={true}
+                // startTime={startTime}
+                // endTime={endTime}
+                // isActive={false}
+                // keyframes={keyframes}
+                // editingObject=''
+                // isActiveEditor={true}
+                // isEditing={false}
+                // isResizing={false}
+                // onEditing={() => {
+                //   return '';
+                // }}
+                // onSetLiveObject={() => {
+                //   return '';
+                // }}
                 />
               )}
             </div>
