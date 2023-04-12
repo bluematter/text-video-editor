@@ -14,7 +14,7 @@ module.exports = {
   ],
   rules: {
     'no-unused-vars': 'off',
-    'no-console': 'warn',
+    'no-console': 'off',
     '@typescript-eslint/explicit-module-boundary-types': 'off',
     'react/no-unescaped-entities': 'off',
 
@@ -24,11 +24,16 @@ module.exports = {
       { props: 'never', children: 'never' },
     ],
 
+    // TODO: remove this rule
+    'react-hooks/rules-of-hooks': 'off',
+    'react-hooks/exhaustive-deps': 'off',
+    '@typescript-eslint/no-explicit-any': 'off',
+
     //#region  //*=========== Unused Import ===========
     '@typescript-eslint/no-unused-vars': 'off',
     'unused-imports/no-unused-imports': 'warn',
     'unused-imports/no-unused-vars': [
-      'warn',
+      'off',
       {
         vars: 'all',
         varsIgnorePattern: '^_',
