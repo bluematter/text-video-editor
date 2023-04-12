@@ -8,10 +8,10 @@ import Text from '@/components/Video/Player/Objects/Text';
 import TextAnimation from '@/components/Video/Player/Objects/TextAnimation';
 import Video from '@/components/Video/Player/Objects/Video';
 
+import { getTemplate } from '@/helpers';
 import { indexManager } from '@/helpers/indexManager';
 
 import { IDurations } from '.';
-// import { getTemplate } from '../../Hoc/withRenderDataGen';
 
 interface IRawPlayerProps {
   muted: boolean;
@@ -182,20 +182,22 @@ const RawPlayer: FC<IRawPlayerProps> = ({
     (async () => {
       try {
         // TODO: recordingData.duration needs to be available on mount or this will cause a bug
-        // const { introDuration, templateData } = await getTemplate({
-        //   slug: introTemplate?.slug,
-        //   recordingData,
-        //   videoDimensions,
-        // });
-        // if (playerContainer) {
-        //   setScale(playerContainer.offsetWidth / videoDimensions.width);
-        // }
-        // setRawData(templateData);
-        // onDurations({
-        //   introDuration,
-        //   editsDuration: 0,
-        //   recordingDuration: recordingData.duration,
-        // });
+        const { introDuration, templateData } = await getTemplate({
+          slug: introTemplate?.slug,
+          recordingData,
+          videoDimensions,
+        });
+
+        if (playerContainer) {
+          setScale(playerContainer.offsetWidth / videoDimensions.width);
+        }
+
+        setRawData(templateData);
+        onDurations({
+          introDuration,
+          editsDuration: 0,
+          recordingDuration: recordingData.duration,
+        });
       } catch (e: any) {
         console.warn('Error in handleMount RawPlayer.tsx: ', e.message || '');
       }

@@ -24,8 +24,19 @@ import Video from '@/components/Video';
 export default function HomePage() {
   const [isPlaying, setIsPlaying] = useState<boolean>(false);
 
+  const t = {
+    mp4: {
+      src: 'https://s3.us-west-2.amazonaws.com/motionbox.mediaconvert/256ae530-d5db-11ed-93d0-89154e48a671_clg7mneb30000mn08zfax1d22.mp4',
+      size: 24151556,
+    },
+  };
+  const videoDimensions = {
+    r: 1,
+    width: 1920,
+    height: 1080,
+  };
   const videoSrc =
-    'https://cdn.jsdelivr.net/npm/big-buck-bunny-1080p@0.0.6/video.mp4';
+    'https://s3.us-west-2.amazonaws.com/motionbox.mediaconvert/256ae530-d5db-11ed-93d0-89154e48a671_clg7mneb30000mn08zfax1d22.mp4';
   const isTabletOrMobile = false;
   const recordingDuration = 30;
   const editorSize = {
@@ -56,7 +67,7 @@ export default function HomePage() {
             orientation={isTabletOrMobile ? 'horizontal' : 'vertical'}
             style={{
               minHeight: 500,
-              maxHeight: 600,
+              maxHeight: 650,
             }}
           >
             <ReflexElement
@@ -79,7 +90,7 @@ export default function HomePage() {
                 editData={[]}
                 introTemplate={undefined}
                 isCaptions={true}
-                isPlaying={false}
+                isPlaying={isPlaying}
                 loading={false}
                 onPause={handlePause}
                 onPlay={handlePlay}
@@ -89,11 +100,7 @@ export default function HomePage() {
                 thumbnail={undefined}
                 transcription={[]}
                 videoChunks={[[0, 30]]}
-                videoDimensions={{
-                  r: 1,
-                  width: 1920,
-                  height: 1080,
-                }}
+                videoDimensions={videoDimensions}
                 onDurations={() => ''}
               />
             </ReflexElement>
@@ -122,13 +129,13 @@ export default function HomePage() {
                   editData={[]}
                   introEnabled={true}
                   isCaptions={false}
-                  isPlaying={false}
+                  isPlaying={isPlaying}
                   loading={false}
                   onCaptions={() => ''}
                   onChangeTranscription={() => ''}
                   onEditData={() => ''}
                   onOpenIntroModal={() => ''}
-                  onPlayback={() => ''}
+                  onPlayback={handlePlayback}
                   onSelection={() => ''}
                   onSetCaptionSettings={() => ''}
                   selectionState={null}

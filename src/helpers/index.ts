@@ -1,6 +1,6 @@
 import url from 'url';
 
-import { IGenerateVideoChunks, IWord } from '@/types';
+import { IGenerateVideoChunks, IVideoDimensions, IWord } from '@/types';
 
 export function classNames(...classes: any) {
   return classes.filter(Boolean).join(' ');
@@ -315,5 +315,59 @@ export const setLottieColors = (animationColors: any, animationData: any) => {
 
       return layer;
     }),
+  };
+};
+
+export const getTemplate = async ({
+  slug,
+  recordingData,
+  videoDimensions,
+}: {
+  slug?: string;
+  recordingData?: {
+    src?: string;
+    edits: any;
+    duration: number;
+  };
+  videoDimensions?: IVideoDimensions;
+}) => {
+  const introDuration = 0;
+
+  const combinedData = [
+    {
+      duration: recordingData?.duration,
+      endDelta: 0,
+      endTime:
+        (recordingData?.duration ? recordingData?.duration : 0) + introDuration,
+      height: 1080,
+      image: '',
+      left: 0,
+      link: recordingData?.src,
+      metadata: '',
+      startDelta: 0,
+      startTime: introDuration,
+      thumbnails: [''],
+      top: 0,
+      trackIndex: 1,
+      type: 'video',
+      uid: 'custom-recording-chunk-0',
+      width: 1920,
+    },
+  ];
+
+  return {
+    introDuration,
+    templateData: combinedData.reduce(
+      (acc: any, curr: any) =>
+        curr
+          ? {
+              ...acc,
+              [curr.uid]: {
+                ...curr,
+              },
+            }
+          : acc,
+      {}
+    ),
   };
 };
